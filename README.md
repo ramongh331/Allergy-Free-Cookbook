@@ -15,6 +15,16 @@ The Allergy-Free Digital Cookbook allows users to input recipes into their accou
 
 ## Mockups
 
-Use Mockflow.com
+#### Landing Page
+
+![Landing Page for Que Rico](https://i.imgur.com/hyfmcay.png)
+
+#### Sign Up Page
+
+![Sign Up Page for Que Rico](https://i.imgur.com/xklNk7z.png)
+
+#### Log In Page
+
+![Log In Page for Que Rico](https://i.imgur.com/i3dA30c.png)
 
 ##
