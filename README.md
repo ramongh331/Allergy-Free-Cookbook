@@ -4,6 +4,15 @@
 
 The Allergy-Free Digital Cookbook allows users to input recipes into their account to either keep as a personal cookbook or share with other users. Users will be able to add the difficulty of the recipe, the name, ingredients, steps, and they can check off boxes to indeicate which allergens are not included.
 
+## Technologies Used
+
+- Javascript
+- CSS
+- Express
+- EJS
+- MongoDB
+- Render.com
+
 ### Extras (Maybe)
 
 - I would love to add the feature of Public vs Private. If the user would like to make their recipe public, it will be shown on the Main Show page. If it is made private, it will only be present in their personal cookbook.
@@ -19,10 +28,14 @@ The Allergy-Free Digital Cookbook allows users to input recipes into their accou
 
 ![Landing Page for Que Rico](https://i.imgur.com/rwsvxlU.jpg)
 
-#### Login/Sign Up Page
+#### Similar Layout for Login and Sign Up Page
 
 ![Login/Sign Up Page for Que Rico](https://i.imgur.com/66bz97s.jpg)
 
-#### Index Page
+#### Index/Show Page
 
-![Index Page for Que Rico](https://i.imgur.com/R8uT7J9.jpg)
+![Index Page for Que Rico](https://i.imgur.com/mkD3fcD.jpg)
+
+#### Similar Layout for New and Edit Page
+
+![New/Edit Page for Que Rico](https://i.imgur.com/YsaX88K.png)
