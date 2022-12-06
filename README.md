@@ -17,14 +17,12 @@ The Allergy-Free Digital Cookbook allows users to input recipes into their accou
 
 #### Landing Page
 
-![Landing Page for Que Rico](https://i.imgur.com/hyfmcay.png)
+![Landing Page for Que Rico](https://i.imgur.com/rwsvxlU.jpg)
 
-#### Sign Up Page
+#### Login/Sign Up Page
 
-![Sign Up Page for Que Rico](https://i.imgur.com/xklNk7z.png)
+![Login/Sign Up Page for Que Rico](https://i.imgur.com/66bz97s.jpg)
 
-#### Log In Page
+#### Index Page
 
-![Log In Page for Que Rico](https://i.imgur.com/i3dA30c.png)
-
-##
+![Index Page for Que Rico](https://i.imgur.com/R8uT7J9.jpg)
