@@ -6,5 +6,18 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <h1>Hello there!</h1>
+<section class="recipeList">
+  <% for(let i = 0; i< recipe.length; i+=1){ %>
+    <h2><%= recipe[i].name%> </h2>
+    <% } %> 
+</section>
+<section>
+  <% for(let i = 0; i< recipe.length; i+=1){ %>
+    <% const ingred = recipe[i].ingredients %> 
+    <% for(let j = 0; j< ingred.length; j+=1){ %>
+    <p><%=ingred[j]  %></p> 
+      <% } %>
+  <% } %> 
+   </section>
   </body>
 </html>

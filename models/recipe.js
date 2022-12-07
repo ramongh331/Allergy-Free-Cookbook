@@ -7,8 +7,8 @@ const { Schema, model } = mongoose;
 
 const recipesSchema = new Schema({
   name: String,
-  ingredients: String,
-  instructions: String,
+  ingredients: [String],
+  instructions: [String],
   difficulty: String,
   allergyFree: {
     gluten: Boolean,
