@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs') %>
+    
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
     <h1>Hello there!</h1>
+      
+   <% const details = () => {alert("This is working")} %> 
 <section class="recipeList">
   <% for(let i = 0; i< recipe.length; i+=1){ %>
-    <h2><%= recipe[i].name%> </h2>
+    <h2 class="recipeName" onclick="details()"><%= recipe[i].name%> </h2>
     
     <h3>Ingredients</h3>
     <% const ingred = recipe[i].ingredients %> 
@@ -21,16 +24,8 @@
     <% for(let k = 0; k< instruc.length; k+=1){ %>
       <p><%=instruc[k]  %></p> 
       <% } %>
-    <% } %> 
+      <% } %> 
 </section>
- <section>
-  <!-- Listing Each ingredient per line -->
-  <!-- <% for(let i = 0; i< recipe.length; i+=1){ %>
-    <% const ingred = recipe[i].ingredients %> 
-    <% for(let j = 0; j< ingred.length; j+=1){ %>
-    <p><%=ingred[j]  %></p> 
-      <% } %>
-  <% } %>  -->
-   </section> 
+ <section id="details"></section>
   </body>
 </html>

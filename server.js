@@ -18,7 +18,7 @@ const app = express();
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use("/static", express.static("public"));
 // app.use(
 //   session({
 //     secret: process.env.SECRET,
