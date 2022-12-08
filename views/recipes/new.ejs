@@ -3,6 +3,18 @@
   <head>
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/static/index.css" />
+    <script defer>
+        
+  
+        const createTextBox = () => {
+            const $newInputs = $("#newInputs");
+          const newDiv = $("<div></div>");
+          newDiv.html(
+            "<input type='text' name='indgredients[]' id='newInputBox'>"
+          );
+          $newInputs.append(newDiv);
+        };
+      </script>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
@@ -20,8 +32,8 @@
                 type="text"
                 name="name"
                 placeholder="enter a recipe name"
-              />
-            </label>
+              /> </label
+            ><br />
             <label>
               Ingredients:
               <input
@@ -30,10 +42,23 @@
                 placeholder="enter an ingredient"
               />
             </label>
+            <div id="dynamicCheck">
+              <input
+                type="button"
+                value="Add Ingredient"
+                onclick="createTextBox()"
+              />
+            </div>
+            <div id="newInputs"></div>
+            <br />
             <label>
               Instructions:
-              <input type="text" name="instructions[]" placeholder="add step" />
-            </label>
+              <input
+                type="text"
+                name="instructions[]"
+                placeholder="add step"
+              /> </label
+            ><br />
             <label>
               Difficulty:
               <select name="difficulty" id="difficulty">
@@ -92,5 +117,6 @@
         </form>
       </section>
     </main>
+    
   </body>
 </html>
