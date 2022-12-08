@@ -10,7 +10,10 @@
 
     <section class="recipeNames">
       <% for(let i = 0; i< recipe.length; i+=1){ %>
-      <h2 class="recipeName"><%= recipe[i].name%></h2>
+      <a href="/recipes/<%=recipe[i]._id %> ">
+        <h2 class="recipeName"><%= recipe[i].name%></h2>
+      </a>
+      <h3><%=recipe[i].difficulty %></h3>
       <ul>
         <% if(recipe[i].allergyFree.gluten){ %>
         <li><p>Gluten-Free</p></li>

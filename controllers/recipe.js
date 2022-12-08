@@ -16,6 +16,7 @@ const router = express.Router();
 ///////////////////////////////////////////////
 router.get("/seed", (req, res) => {});
 
+// Index Route
 router.get("/", (req, res) => {
 Recipe.find({})
 .then((recipe) => {
@@ -23,6 +24,15 @@ Recipe.find({})
 })
 .catch((error) => console.log(error))
 })
+
+// Show Route
+router.get("/:id", (req, res) => {
+    Recipe.findById(req.params.id).then((recipe) => {
+      res.render("../views/recipes/show.ejs", { recipe });
+    })
+    .catch((error) => console.log(error))
+   });
+   
 
 /////////////
 ///// export this router to use in other files

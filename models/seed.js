@@ -25,6 +25,7 @@ mongoose.connection.on('open', () => {
         "Spoon 1 and a half cups of the turkey mixture into the bottom of an 8x8 inch baking dish. Top with 2 whole tortillas and one tortilla cut in half so that the whole pan is covered. Spoon another 1-½ cups of the turkey mixture on top and sprinkle with ½ cup cheese. Cover with more tortillas and repeat again with the meat mixture and cheese.",
         "Cover with aluminum foil and bake at 375° F for 25-30 minutes. Uncover and allow to sit for 5 minutes before serving. Serve with a dollop of dairy free sour cream if desired."        
     ],
+    difficulty: "Medium",
     allergyFree:{
     gluten: true,
     dairy: true,
@@ -55,6 +56,7 @@ mongoose.connection.on('open', () => {
      "Place pan under broiler, not too close, and watch carefully until “cheese” starts to melt and tips of chips get crispy.",
      "Remove from broiler, scatter avocado, scallions, and cilantro on top, and serve immediately with Cholula on the side."       
  ],
+ difficulty: "Easy",
  allergyFree:{
  gluten: true,
  dairy: false,

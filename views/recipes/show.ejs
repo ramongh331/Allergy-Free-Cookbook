@@ -6,23 +6,49 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-    <h1>Hello there!</h1>
+    <h1><%=recipe.name %></h1>
+    <h2>Difficulty: <%=recipe.difficulty %></h2>
 
 <section class="recipeDetails">
-    <% for(let i = 0; i< recipe.length; i+=1){ %>
-      <h2><%= recipe[i].name%> </h2>
-      
-      
-        <h3>Ingredients</h3>
-        <% const ingred = recipe[i].ingredients %>
-        <% for(let j = 0; j< ingred.length; j+=1){ %>
-          <p><%=ingred[j]  %></p>
-          <% } %>
-        
-          <h3>Instructions</h3>
-          <% const instruc = recipe[i].instructions %>
-        <% for(let k = 0; k< instruc.length; k+=1){ %>
-          <p><%=instruc[k]  %></p>
-          <% } %>
-          <% } %>
+    <section class="allergies">
+        <ul>
+            <% if(recipe.allergyFree.gluten){ %>
+            <li><p>Gluten-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.dairy){ %>
+            <li><p>Dairy-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.treeNut){ %>
+            <li><p>Tree Nut-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.egg){ %>
+            <li><p>Egg-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.nuts){ %>
+            <li><p>Nut-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.fish){ %>
+            <li><p>Fish-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.shellfish){ %>
+            <li><p>Shellfish-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.soy){ %>
+            <li><p>Soy-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.sesameSeeds){ %>
+            <li><p>Sesame Seeds-Free</p></li>
+            <% } %> <% if(recipe.allergyFree.vegan){ %>
+            <li><p>Vegan</p></li>
+            <% } %> <% if(recipe.allergyFree.vegetarian){ %>
+            <li><p>Vegetarian</p></li>
+            <% } %> <% if(recipe.allergyFree.keto){ %>
+            <li><p>Keto</p></li>
+            <% } %>
+          </ul>
+    </section>
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <% for(let ingredient of recipe.ingredients){ %>
+                <h3><%=ingredient %> </h3>
+          <%  } %> 
+        </section>
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <% for(let step of recipe.instructions){ %>
+                <h3><%=step %> </h3>
+          <%  } %> 
+        </section>
 </section>
