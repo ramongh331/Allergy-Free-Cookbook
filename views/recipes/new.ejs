@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/index.css" />
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <h1>Recipes</h1>
+
+    <main>
+      <section>
+        <form action="/recipes" method="POST">
+          <fieldset>
+            <legend>Create a new Recipe</legend>
+
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                placeholder="enter a recipe name"
+              />
+            </label>
+            <label>
+              Ingredients:
+              <input
+                type="text"
+                name="indgredients[]"
+                placeholder="enter an ingredient"
+              />
+            </label>
+            <label>
+              Instructions:
+              <input type="text" name="instructions[]" placeholder="add step" />
+            </label>
+            <label>
+              Difficulty:
+              <select name="difficulty" id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </label>
+            <!-- ---------------------------------------------- -->
+            <section class="allergies">
+              <label>
+                Gluten-Free:
+                <input type="checkbox" name="allergyFree[gluten]" />
+              </label>
+              <label>
+                Dairy-Free: <input type="checkbox" name="allergyFree[dairy]" />
+              </label>
+              <label>
+                Tree Nut-Free:
+                <input type="checkbox" name="allergyFree[treeNut]" />
+              </label>
+              <label>
+                Egg-Free: <input type="checkbox" name="allergyFree[egg]" />
+              </label>
+              <label>
+                Nut-Free: <input type="checkbox" name="allergyFree[nuts]" />
+              </label>
+              <label>
+                Fish-Free: <input type="checkbox" name="allergyFree[fish]" />
+              </label>
+              <label>
+                Shellfish-Free:
+                <input type="checkbox" name="allergyFree[shellfish]" />
+              </label>
+              <label>
+                Soy-Free: <input type="checkbox" name="allergyFree[soy]" />
+              </label>
+              <label>
+                Sesame Seeds-Free:
+                <input type="checkbox" name="allergyFree[sesameSeeds]" />
+              </label>
+              <label>
+                Vegan: <input type="checkbox" name="allergyFree[vegan]" />
+              </label>
+              <label>
+                Vegetarian:
+                <input type="checkbox" name="allergyFree[vegetarian]" />
+              </label>
+              <label>
+                Keto: <input type="checkbox" name="allergyFree[keto]" />
+              </label>
+            </section>
+          </fieldset>
+
+          <input type="submit" value="Add Recipe" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

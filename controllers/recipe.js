@@ -25,10 +25,17 @@ Recipe.find({})
 .catch((error) => console.log(error))
 })
 
+// New Route
+router.get("/new", (req, res) => {
+    res.render("recipes/new.ejs");
+   });
+   
+// Update Route
+
 // Show Route
 router.get("/:id", (req, res) => {
     Recipe.findById(req.params.id).then((recipe) => {
-      res.render("../views/recipes/show.ejs", { recipe });
+      res.render("recipes/show.ejs", { recipe });
     })
     .catch((error) => console.log(error))
    });
