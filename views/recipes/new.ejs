@@ -4,13 +4,11 @@
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/static/index.css" />
     <script defer>
-        
-  
         const createTextBox = () => {
             const $newInputs = $("#newInputs");
           const newDiv = $("<div></div>");
           newDiv.html(
-            "<input type='text' name='indgredients[]' id='newInputBox'>"
+            "<input type='text' name='ingredients[]' id='newInputBox'>"
           );
           $newInputs.append(newDiv);
         };
@@ -38,7 +36,7 @@
               Ingredients:
               <input
                 type="text"
-                name="indgredients[]"
+                name="ingredients[]"
                 placeholder="enter an ingredient"
               />
             </label>

@@ -31,7 +31,30 @@ router.get("/new", (req, res) => {
    });
    
 // Update Route
+router.post("/", (req, res) => {
+    // check if the checkboxes should be true or false
+    req.body.allergyFree.gluten = req.body.allergyFree.gluten === "on" ? true : false;
+    req.body.allergyFree.dairy = req.body.allergyFree.dairy === "on" ? true : false;
+    req.body.allergyFree.treeNut = req.body.allergyFree.treeNut === "on" ? true : false;
+    req.body.allergyFree.egg = req.body.allergyFree.egg === "on" ? true : false;
+    req.body.allergyFree.nuts = req.body.allergyFree.nuts === "on" ? true : false;
+    req.body.allergyFree.fish = req.body.allergyFree.fish === "on" ? true : false;
+    req.body.allergyFree.shellfish = req.body.allergyFree.shellfish === "on" ? true : false;
+    req.body.allergyFree.soy = req.body.allergyFree.soy === "on" ? true : false;
+    req.body.allergyFree.sesameSeeds = req.body.allergyFree.sesameSeeds === "on" ? true : false;
+    req.body.allergyFree.vegan = req.body.allergyFree.vegan === "on" ? true : false;
+    req.body.allergyFree.vegetarian = req.body.allergyFree.vegetarian === "on" ? true : false;
+    req.body.allergyFree.keto = req.body.allergyFree.keto === "on" ? true : false;
+    console.log(req.body, "this is the form before submission")
 
+
+    Recipe.create(req.body, (err, createdRecipe) => {
+      
+      console.log("created", createdRecipe);
+      res.redirect("/recipes");
+    });
+   });
+   
 // Show Route
 router.get("/:id", (req, res) => {
     Recipe.findById(req.params.id).then((recipe) => {

@@ -6,6 +6,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 4500;
 const RecipeRouter = require("./controllers/recipe");
+const Morgan = require("morgan")
 // const UserRouter = require("./controllers/user");
 // const session = require("express-session");
 // const MongoStore = require("connect-mongo");
@@ -15,7 +16,7 @@ const app = express();
 //////////////////////////////////////////////
 //////// Middlewares
 ///////////////////////////////////////////////
-
+app.use(Morgan("dev"))
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use("/static", express.static("public"));
