@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/static/show.css">
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <h1>Hello there!</h1>
+
+<section class="recipeDetails">
+    <% for(let i = 0; i< recipe.length; i+=1){ %>
+      <h2><%= recipe[i].name%> </h2>
+      
+      
+        <h3>Ingredients</h3>
+        <% const ingred = recipe[i].ingredients %>
+        <% for(let j = 0; j< ingred.length; j+=1){ %>
+          <p><%=ingred[j]  %></p>
+          <% } %>
+        
+          <h3>Instructions</h3>
+          <% const instruc = recipe[i].instructions %>
+        <% for(let k = 0; k< instruc.length; k+=1){ %>
+          <p><%=instruc[k]  %></p>
+          <% } %>
+          <% } %>
+</section>

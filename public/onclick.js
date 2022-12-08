@@ -1,7 +1,9 @@
-const recipeName = document.getElementsByClassName("recipeName")
-const details = document.getElementById("details")
+const $recipeName = $(".recipeName")
+const $details = $("#details")
 
-recipeName.addEventListener("click", () => {
-alert("This is working")
+console.log($recipeName)
+
+$recipeName.on("click", () => {
+console.log(recipe)
 })
 

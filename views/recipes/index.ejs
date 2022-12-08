@@ -2,30 +2,43 @@
 <html lang="en">
   <head>
     <%- include('../partials/head.ejs') %>
-    
+    <link rel="stylesheet" href="/static/index.css" />
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-    <h1>Hello there!</h1>
-      
-   <% const details = () => {alert("This is working")} %> 
-<section class="recipeList">
-  <% for(let i = 0; i< recipe.length; i+=1){ %>
-    <h2 class="recipeName" onclick="details()"><%= recipe[i].name%> </h2>
-    
-    <h3>Ingredients</h3>
-    <% const ingred = recipe[i].ingredients %> 
-    <% for(let j = 0; j< ingred.length; j+=1){ %>
-      <p><%=ingred[j]  %></p> 
+    <h1>Recipes</h1>
+
+    <section class="recipeNames">
+      <% for(let i = 0; i< recipe.length; i+=1){ %>
+      <h2 class="recipeName"><%= recipe[i].name%></h2>
+      <ul>
+        <% if(recipe[i].allergyFree.gluten){ %>
+        <li><p>Gluten-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.dairy){ %>
+        <li><p>Dairy-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.treeNut){ %>
+        <li><p>Tree Nut-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.egg){ %>
+        <li><p>Egg-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.nuts){ %>
+        <li><p>Nut-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.fish){ %>
+        <li><p>Fish-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.shellfish){ %>
+        <li><p>Shellfish-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.soy){ %>
+        <li><p>Soy-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.sesameSeeds){ %>
+        <li><p>Sesame Seeds-Free</p></li>
+        <% } %> <% if(recipe[i].allergyFree.vegan){ %>
+        <li><p>Vegan</p></li>
+        <% } %> <% if(recipe[i].allergyFree.vegetarian){ %>
+        <li><p>Vegetarian</p></li>
+        <% } %> <% if(recipe[i].allergyFree.keto){ %>
+        <li><p>Keto</p></li>
+        <% } %>
+      </ul>
       <% } %>
-      
-      <h3>Instructions</h3>
-      <% const instruc = recipe[i].instructions %> 
-    <% for(let k = 0; k< instruc.length; k+=1){ %>
-      <p><%=instruc[k]  %></p> 
-      <% } %>
-      <% } %> 
-</section>
- <section id="details"></section>
+    </section>
   </body>
 </html>
