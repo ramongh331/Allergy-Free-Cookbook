@@ -33,7 +33,7 @@
 
     <main>
       <section>
-        <form action="/recipes" method="POST">
+        <form action="/recipes/<%=recipe._id %>?_method=PUT" method="POST">
           <fieldset>
             <legend>Edit <%=recipe.name %></legend>
 
