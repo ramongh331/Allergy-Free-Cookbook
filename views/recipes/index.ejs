@@ -7,7 +7,7 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <h1>Recipes</h1>
-
+<a href="/recipes/new"><button>Add a Recipe</button></a>
     <section class="recipeNames">
       <% for(let i = 0; i< recipe.length; i+=1){ %>
       <a href="/recipes/<%=recipe[i]._id %> ">
@@ -43,5 +43,6 @@
       </ul>
       <% } %>
     </section>
+
   </body>
 </html>

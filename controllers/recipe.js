@@ -30,7 +30,7 @@ router.get("/new", (req, res) => {
     res.render("recipes/new.ejs");
    });
    
-// Update Route
+// Create Route
 router.post("/", (req, res) => {
     // check if the checkboxes should be true or false
     req.body.allergyFree.gluten = req.body.allergyFree.gluten === "on" ? true : false;
@@ -55,6 +55,18 @@ router.post("/", (req, res) => {
     });
    });
    
+// Edit Route
+router.get("/:id/edit", (req, res) => {
+  const id = req.params.id;
+  // Find the recipe and send it to the edit.ejs to prepopulate the form
+  Recipe.findById(id, (err, foundRecipe) => {
+    res.render("recipes/edit.ejs", { recipe: foundRecipe });
+  });
+ });
+ 
+
+// Update Route
+
 // Show Route
 router.get("/:id", (req, res) => {
     Recipe.findById(req.params.id).then((recipe) => {
