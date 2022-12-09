@@ -12,6 +12,14 @@
           );
           $newInputs.append(newDiv);
         };
+        const createTextBox2 = () => {
+            const $newInputs2 = $("#newInputs2");
+          const newDiv2 = $("<div></div>");
+          newDiv2.html(
+            "<input type='text' name='instructions[]' id='newInputBox2'>"
+          );
+          $newInputs2.append(newDiv2);
+        };
       </script>
   </head>
   <body>
@@ -55,8 +63,17 @@
                 type="text"
                 name="instructions[]"
                 placeholder="add step"
-              /> </label
-            ><br />
+              /> 
+              </label>
+              <div id="dynamicCheck2">
+                <input
+                  type="button"
+                  value="Add Step"
+                  onclick="createTextBox2()"
+                />
+              </div>
+              <div id="newInputs2"></div>
+            <br />
             <label>
               Difficulty:
               <select name="difficulty" id="difficulty">
