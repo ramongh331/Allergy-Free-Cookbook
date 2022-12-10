@@ -61,8 +61,6 @@
                 onclick="createTextBox()"
               />
             </div>
-            
-            
             <br />
             <label>
               Instructions:
@@ -84,13 +82,29 @@
               </div>
               
             <br />
+            <!-- -------------------------------------------------- -->
             <label>
               Difficulty:
               
               <select name="difficulty" id="difficulty">
-                <option value="Easy" >Easy</option>
-                <option value="Medium" id="medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <!-- If statement for the easy option -->
+                <% if(recipe.difficulty === "Easy") {%> 
+                  <option value="Easy" selected="selected">Easy</option>
+                  <% } else { %>
+                    <option value="Easy">Easy</option>
+                    <% } %>
+                <!-- If statement for the medium option -->
+                <% if(recipe.difficulty === "Medium") {%> 
+                <option value="Medium" selected="selected">Medium</option>
+                <% } else { %>
+                  <option value="Medium">Medium</option>
+                  <% } %> 
+                <!-- If statement for the hard option -->
+                  <% if(recipe.difficulty === "Hard") {%> 
+                    <option value="Hard" selected="selected">Hard</option>
+                    <% } else { %>
+                      <option value="Hard">Hard</option>
+                      <% } %>
               </select>
             </label>
             <!-- ---------------------------------------------- -->
@@ -139,7 +153,7 @@
             </section>
           </fieldset>
 
-          <input type="submit" value="Add Recipe" />
+          <input type="submit" value="Update Recipe" />
         </form>
       </section>
     </main>
