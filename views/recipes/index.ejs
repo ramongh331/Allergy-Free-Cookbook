@@ -6,43 +6,47 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-    <h1>Recipes</h1>
-<a href="/recipes/new"><button>Add a Recipe</button></a>
-    <section class="recipeNames">
-      <% for(let i = 0; i< recipe.length; i+=1){ %>
-      <a href="/recipes/<%=recipe[i]._id %> ">
-        <h2 class="recipeName"><%= recipe[i].name%></h2>
-      </a>
-      <h3><%=recipe[i].difficulty %></h3>
-      <ul>
-        <% if(recipe[i].allergyFree.gluten){ %>
-        <li><p>Gluten-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.dairy){ %>
-        <li><p>Dairy-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.treeNut){ %>
-        <li><p>Tree Nut-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.egg){ %>
-        <li><p>Egg-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.nuts){ %>
-        <li><p>Nut-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.fish){ %>
-        <li><p>Fish-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.shellfish){ %>
-        <li><p>Shellfish-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.soy){ %>
-        <li><p>Soy-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.sesameSeeds){ %>
-        <li><p>Sesame Seeds-Free</p></li>
-        <% } %> <% if(recipe[i].allergyFree.vegan){ %>
-        <li><p>Vegan</p></li>
-        <% } %> <% if(recipe[i].allergyFree.vegetarian){ %>
-        <li><p>Vegetarian</p></li>
-        <% } %> <% if(recipe[i].allergyFree.keto){ %>
-        <li><p>Keto</p></li>
+    <main class="card">
+      <h1>Recipes</h1>
+      <a href="/recipes/new"><button>Add a Recipe</button></a>
+      <section class="recipeNames">
+        <% for(let i = 0; i< recipe.length; i+=1){ %>
+        <section class="eachRecipe">
+          <a href="/recipes/<%=recipe[i]._id %> ">
+            <h2 class="recipeName"><%= recipe[i].name%></h2>
+          </a>
+          <h3><%=recipe[i].difficulty %></h3>
+            <ul class="allergyIndicator">
+              <% if(recipe[i].allergyFree.gluten){ %>
+              <li><p>Gluten-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.dairy){ %>
+              <li><p>Dairy-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.treeNut){ %>
+              <li><p>Tree Nut-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.egg){ %>
+              <li><p>Egg-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.nuts){ %>
+              <li><p>Nut-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.fish){ %>
+              <li><p>Fish-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.shellfish){ %>
+              <li><p>Shellfish-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.soy){ %>
+              <li><p>Soy-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.sesameSeeds){ %>
+              <li><p>Sesame Seeds-Free</p></li>
+              <% } %> <% if(recipe[i].allergyFree.vegan){ %>
+              <li><p>Vegan</p></li>
+              <% } %> <% if(recipe[i].allergyFree.vegetarian){ %>
+              <li><p>Vegetarian</p></li>
+              <% } %> <% if(recipe[i].allergyFree.keto){ %>
+              <li><p>Keto</p></li>
+              <% } %>
+            </ul>
+        </section>
         <% } %>
-      </ul>
-      <% } %>
-    </section>
+      </section>
+    </main>
 
   </body>
 </html>
