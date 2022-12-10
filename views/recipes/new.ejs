@@ -22,8 +22,10 @@
         };
 
         // Function to Load the file
-        const loadFile = (event) => {
-	let imgURL = URL.createObjectURL(event.target.files[0]);
+        const fileURL = (event) => {
+	const imgURL = URL.createObjectURL(event.target.files[0]);
+  console.log(imgURL)
+  return imgURL
 
 };
       </script>
@@ -34,7 +36,7 @@
 
     <main>
       <section>
-        <form action="/recipes" onsubmit="loadFile(event)" method="POST">
+        <form action="/recipes" method="POST">
           <fieldset>
             <legend>Create a new Recipe</legend>
 
@@ -48,7 +50,7 @@
             ><br />
             <label>
               Upload Image:
-              <input type="file" accept="image/*" name="image" id="imgFile">
+              <input type="file" accept="image/*" name="image" id="file" onchange="fileURL(event)">
             </label>
             <br/>
             <label>

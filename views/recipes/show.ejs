@@ -3,13 +3,7 @@
   <head>
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/static/show.css">
-    <script>
-      // Function to Load the file
-      const loadFile = (event) => {
-	const image = document.querySelector('#output');
-	image.src = URL.createObjectURL(event.target.files[0]);
-};
-    </script>
+  
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
@@ -19,7 +13,7 @@
    </form>
    </div>
     <h1><%=recipe.name %></h1>
-    <img id="output" width="200" />
+    <img id="output" width="200" src="<%=recipe.image %>"/>
     <h2>Difficulty: <%=recipe.difficulty %></h2>
 
 <section class="recipeDetails">
