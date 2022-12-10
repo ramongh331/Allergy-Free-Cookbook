@@ -70,10 +70,12 @@ h3{
 
 .allergyIndicator{
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     justify-content: space-evenly;
-    width: 100%;
+    width: 80%;
+    line-height:1.5em
 }
 
 
