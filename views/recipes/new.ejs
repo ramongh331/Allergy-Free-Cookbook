@@ -22,10 +22,12 @@
         };
 
         // Function to Load the file
-        const fileURL = (event) => {
-	const imgURL = URL.createObjectURL(event.target.files[0]);
-  console.log(imgURL)
-  return imgURL
+        const loadFile = (event) => {
+          const imgPreview = document.querySelector('#imgPreview')
+	imgPreview.src = URL.createObjectURL(event.target.files[0]);
+  console.log(imgPreview.src)
+  
+ 
 
 };
       </script>
@@ -50,7 +52,7 @@
             ><br />
             <label>
               Upload Image:
-              <input type="file" accept="image/*" name="image" id="file" onchange="fileURL(event)">
+              <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
             </label>
             <br/>
             <label>
@@ -145,6 +147,7 @@
 
           <input type="submit" value="Add Recipe" />
         </form>
+        <img height="200" id="imgPreview">
       </section>
     </main>
     
