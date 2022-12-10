@@ -20,6 +20,12 @@
           );
           $newInputs2.append(newDiv2);
         };
+
+        // Function to Load the file
+        const loadFile = (event) => {
+	let imgURL = URL.createObjectURL(event.target.files[0]);
+
+};
       </script>
   </head>
   <body>
@@ -28,7 +34,7 @@
 
     <main>
       <section>
-        <form action="/recipes" method="POST">
+        <form action="/recipes" onsubmit="loadFile(event)" method="POST">
           <fieldset>
             <legend>Create a new Recipe</legend>
 
@@ -40,6 +46,11 @@
                 placeholder="enter a recipe name"
               /> </label
             ><br />
+            <label>
+              Upload Image:
+              <input type="file" accept="image/*" name="image" id="imgFile">
+            </label>
+            <br/>
             <label>
               Ingredients:
               <input
