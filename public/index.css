@@ -83,3 +83,18 @@ h3{
 margin:0 ;
 
 }
+
+.hiddenLabel{
+display:none;
+text-align: center;
+}
+.allerIcon{
+    height: 3rem;
+}
+.allerIcon:hover + .hiddenLabel{
+display: block;
+}
+
+.hiddenLabel{
+margin:0
+}
