@@ -7,57 +7,63 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-   <div class="deleteButton">
-    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete Recipe" />
-   </form>
-   </div>
-    <h1><%=recipe.name %></h1>
-    <img id="output" width="200" src="<%=recipe.image %>"/>
-    <h2>Difficulty: <%=recipe.difficulty %></h2>
-
-<section class="recipeDetails">
-    <section class="allergies">
-        <ul>
+    <section class="card">
+   
+    
+      <h1><%=recipe.name %> - <%=recipe.difficulty %></h1>
+      
+      
+          <ul class="allergyIndicator">
             <% if(recipe.allergyFree.gluten){ %>
-            <li><p>Gluten-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.dairy){ %>
-            <li><p>Dairy-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.treeNut){ %>
-            <li><p>Tree Nut-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.egg){ %>
-            <li><p>Egg-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.nuts){ %>
-            <li><p>Nut-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.fish){ %>
-            <li><p>Fish-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.shellfish){ %>
-            <li><p>Shellfish-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.soy){ %>
-            <li><p>Soy-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.sesameSeeds){ %>
-            <li><p>Sesame Seeds-Free</p></li>
-            <% } %> <% if(recipe.allergyFree.vegan){ %>
-            <li><p>Vegan</p></li>
-            <% } %> <% if(recipe.allergyFree.vegetarian){ %>
-            <li><p>Vegetarian</p></li>
-            <% } %> <% if(recipe.allergyFree.keto){ %>
-            <li><p>Keto</p></li>
-            <% } %>
-          </ul>
+              <li><img src="https://i.imgur.com/hLCBvKT.png" alt="Gluten-Free" class="allerIcon"><p class="hiddenLabel">Gluten-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.dairy){ %>
+              <li><img src="https://i.imgur.com/Y5S7RnW.png" alt="Dairy-Free" class="allerIcon"><p class="hiddenLabel">Dairy-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.treeNut){ %>
+              <li><img src="https://i.imgur.com/B7gJ5g8.png" alt="Tree Nut-Free" class="allerIcon"><p class="hiddenLabel">Tree Nut-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.egg){ %>
+              <li><img src="https://i.imgur.com/zRgNnQn.png" alt="Egg-Free" class="allerIcon"><p class="hiddenLabel">Egg-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.nuts){ %>
+              <li><img src="https://i.imgur.com/wgJhln8.png" alt="Nut-Free" class="allerIcon"><p class="hiddenLabel">Nut-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.fish){ %>
+              <li><img src="https://i.imgur.com/6l4AQnL.png" alt="Fish-Free" class="allerIcon"><p class="hiddenLabel">Fish-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.shellfish){ %>
+              <li><img src="https://i.imgur.com/oE1bOyJ.png" alt="Shellfish-Free" class="allerIcon"><p class="hiddenLabel">Shellfish-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.soy){ %>
+              <li><img src="https://i.imgur.com/oFMmsGd.png" alt="Soy-Free" class="allerIcon"><p class="hiddenLabel">Soy-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.sesameSeeds){ %>
+              <li><img src="https://i.imgur.com/ebBUbRX.png" alt="Sesame Seeds-Free" class="allerIcon"><p class="hiddenLabel">Sesame Seeds-Free</p></li>
+              <% } %> <% if(recipe.allergyFree.vegan){ %>
+              <li><img src="https://i.imgur.com/0rBltQU.png" alt="Vegan" class="allerIcon"><p class="hiddenLabel">Vegan</p></li>
+              <% } %> <% if(recipe.allergyFree.vegetarian){ %>
+              <li><img src="https://i.imgur.com/ycUUQXY.png" alt="Vegetarian" class="allerIcon"><p class="hiddenLabel">Vegetarian</p></li>
+              <% } %> <% if(recipe.allergyFree.keto){ %>
+              <li><img src="https://i.imgur.com/NRIkIH9.png" alt="Keto" class="allerIcon"><p class="hiddenLabel">Keto</p></li>
+              <% } %>
+            </ul>
+      <!-- --------------------------------------------------------------- -->
+          <section class="row4">
+            <section class="ingredients">
+                <h2>Ingredients</h2>
+                <% for(let ingredient of recipe.ingredients){ %>
+                    <h3><%=ingredient %> </h3>
+              <%  } %>
+            </section>
+                  <!-- --------------------------------------------------------------- -->
+            <section class="instructions">
+                <h2>Instructions</h2>
+                <% for(let step of recipe.instructions){ %>
+                    <h3><%=step %> </h3>
+              <%  } %>
+            </section>
+          </section>
+          <section class="buttons"> 
+            <a href="/recipes/<%=recipe._id %>/edit"><button>Edit Recipe</button></a>
+            <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+              <input type="submit" value="Delete Recipe" />
+           </form>
+          <a href="/recipes"><button>Back to Recipe List</button></a>
+           </section>
     </section>
-        <section class="ingredients">
-            <h2>Ingredients</h2>
-            <% for(let ingredient of recipe.ingredients){ %>
-                <h3><%=ingredient %> </h3>
-          <%  } %> 
-        </section>
-        <section class="instructions">
-            <h2>Instructions</h2>
-            <% for(let step of recipe.instructions){ %>
-                <h3><%=step %> </h3>
-          <%  } %> 
-        </section>
-</section>
-<a href="/recipes/<%=recipe._id %>/edit"><button>Edit Recipe</button></a>
-<a href="/recipes"><button>Back to Recipe List</button></a>
+
+</body>
+</html>
