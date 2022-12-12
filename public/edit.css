@@ -102,6 +102,7 @@ form{
     border: none;
     width: 15rem;
     font-size: 1rem;
+    margin-bottom: 5px;
   }
 
   #difficulty{
