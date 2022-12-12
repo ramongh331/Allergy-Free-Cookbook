@@ -89,3 +89,26 @@ body {
     width: 15rem;
     font-size: 1rem;
   }
+
+  #difficulty{
+    font-size: 1rem;
+    padding: .2rem;
+    margin-top: 5px;
+  }
+
+  .allergies{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 610px;
+
+  }
+
+  .allergies label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+    text-align: center;
+    margin: 5px;
+  }
