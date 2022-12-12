@@ -24,137 +24,144 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-    <h1>Recipes</h1>
-
-    <main>
-      <section>
+    <main class="card">
         <form action="/recipes/<%=recipe._id %>?_method=PUT" method="POST">
-          <fieldset>
-            <legend>Edit <%=recipe.name %></legend>
-
-            <label>
-              Name:
-              <input
-                type="text"
-                name="name"
-                placeholder="enter a recipe name"
-                value="<%=recipe.name %>"
-              /> </label
-            ><br />
+              <section class="header">
+                <h1>Edit <%=recipe.name %></h1>
+                <input type="submit" value="Update Recipe" />
+              </section>
+              <div class="underline"></div>
+              <section class="recipeDetails">
+                <section class="name">
+                  <label>
+                    <h2>Name:</h2>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="enter a recipe name"
+                      value="<%=recipe.name %>"/>
+                    </label>
+                </section>
+                <!-- ---------------------------------------------- -->
+                
+                  <section class="ingredients">
+                    <label>
+                      <h2>Ingredients:</h2>
+                        <section class="textboxButton">
+                          <% for(let ingredient of recipe.ingredients) {%>
+                            <input
+                              type="text"
+                              name="ingredients[]"
+                              placeholder="enter an ingredient"
+                              value="<%=ingredient %>"
+                            />
+                            <% } %>
+                            <input
+                              type="button"
+                              value="Add Ingredient"
+                              onclick="createTextBox()"/>
+                        </section>
+                    </label>
+                        <div id="newInputs"></div>
+                  </section>
+                
+                <!-- ---------------------------------------------- -->
+                
+                  <section class="instructions">
+                    <label>
+                      <h2>Instructions:</h2>
+                
+                        <section class="textboxButton">
+                          <% for(let step of recipe.instructions) {%>
+                            <input
+                              type="text"
+                              name="instructions[]"
+                              placeholder="add a step"
+                              value="<%=step %>"/>
+                            <% } %>
+                            <input
+                              type="button"
+                              value="Add Step"
+                              onclick="createTextBox2()"/>
+                            </section>
+                      </label>
+                      <div id="newInputs2"></div>
+                  </section>
+                
+                <!-- -------------------------------------------------- -->
+                <section class="difficulty">
+                  <label>
+                    <h2>Difficulty:</h2>
+                
+                    <select name="difficulty" id="difficulty">
+                      <!-- If statement for the easy option -->
+                      <% if(recipe.difficulty === "Easy") {%>
+                        <option value="Easy" selected="selected">Easy</option>
+                        <% } else { %>
+                          <option value="Easy">Easy</option>
+                          <% } %>
+                      <!-- If statement for the medium option -->
+                      <% if(recipe.difficulty === "Medium") {%>
+                      <option value="Medium" selected="selected">Medium</option>
+                      <% } else { %>
+                        <option value="Medium">Medium</option>
+                        <% } %>
+                      <!-- If statement for the hard option -->
+                        <% if(recipe.difficulty === "Hard") {%>
+                          <option value="Hard" selected="selected">Hard</option>
+                          <% } else { %>
+                            <option value="Hard">Hard</option>
+                            <% } %>
+                    </select>
+                  </label>
+                </section>
+                <!-- ---------------------------------------------- -->
+                <section class="allergies">
+                  <label>
+                    Gluten-Free:
+                    <input type="checkbox" name="allergyFree[gluten]" <%=recipe.allergyFree.gluten ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Dairy-Free: <input type="checkbox" name="allergyFree[dairy]" <%=recipe.allergyFree.dairy ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Tree Nut-Free:
+                    <input type="checkbox" name="allergyFree[treeNut]" <%=recipe.allergyFree.treeNut ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Egg-Free: <input type="checkbox" name="allergyFree[egg]" <%=recipe.allergyFree.egg ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Nut-Free: <input type="checkbox" name="allergyFree[nuts]" <%=recipe.allergyFree.nuts ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Fish-Free: <input type="checkbox" name="allergyFree[fish]" <%=recipe.allergyFree.fish ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Shellfish-Free:
+                    <input type="checkbox" name="allergyFree[shellfish]" <%=recipe.allergyFree.shellfish ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Soy-Free: <input type="checkbox" name="allergyFree[soy]" <%=recipe.allergyFree.soy ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Sesame Seeds-Free:
+                    <input type="checkbox" name="allergyFree[sesameSeeds]" <%=recipe.allergyFree.sesameSeeds ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Vegan: <input type="checkbox" name="allergyFree[vegan]" <%=recipe.allergyFree.vegan ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Vegetarian:
+                    <input type="checkbox" name="allergyFree[vegetarian]" <%=recipe.allergyFree.vegetarian ? "checked" : "" %>/>
+                  </label>
+                  <label>
+                    Keto: <input type="checkbox" name="allergyFree[keto]" <%=recipe.allergyFree.keto ? "checked" : "" %>/>
+                  </label>
+                </section>
+              </section>  
+            </form>
             
-            <label>
-              Ingredients:
-            <% for(let ingredient of recipe.ingredients) {%>
-              <input
-                type="text"
-                name="ingredients[]"
-                placeholder="enter an ingredient"
-                value="<%=ingredient %>"
-              />
-              <% } %> 
-            <div id="newInputs"></div>
-            <div id="dynamicCheck">
-              <input
-                type="button"
-                value="Add Ingredient"
-                onclick="createTextBox()"
-              />
-            </div>
-            <br />
-            <label>
-              Instructions:
-              <% for(let step of recipe.instructions) {%>
-                <input
-                  type="text"
-                  name="instructions[]"
-                  placeholder="add a step"
-                  value="<%=step %>"
-                />
-                <% } %>
-              <div id="newInputs2"></div>
-              <div id="dynamicCheck2">
-                <input
-                  type="button"
-                  value="Add Step"
-                  onclick="createTextBox2()"
-                />
-              </div>
-              
-            <br />
-            <!-- -------------------------------------------------- -->
-            <label>
-              Difficulty:
-              
-              <select name="difficulty" id="difficulty">
-                <!-- If statement for the easy option -->
-                <% if(recipe.difficulty === "Easy") {%> 
-                  <option value="Easy" selected="selected">Easy</option>
-                  <% } else { %>
-                    <option value="Easy">Easy</option>
-                    <% } %>
-                <!-- If statement for the medium option -->
-                <% if(recipe.difficulty === "Medium") {%> 
-                <option value="Medium" selected="selected">Medium</option>
-                <% } else { %>
-                  <option value="Medium">Medium</option>
-                  <% } %> 
-                <!-- If statement for the hard option -->
-                  <% if(recipe.difficulty === "Hard") {%> 
-                    <option value="Hard" selected="selected">Hard</option>
-                    <% } else { %>
-                      <option value="Hard">Hard</option>
-                      <% } %>
-              </select>
-            </label>
-            <!-- ---------------------------------------------- -->
-            <section class="allergies">
-              <label>
-                Gluten-Free:
-                <input type="checkbox" name="allergyFree[gluten]" <%=recipe.allergyFree.gluten ? "checked" : "" %>/>
-              </label>
-              <label>
-                Dairy-Free: <input type="checkbox" name="allergyFree[dairy]" <%=recipe.allergyFree.dairy ? "checked" : "" %>/>
-              </label>
-              <label>
-                Tree Nut-Free:
-                <input type="checkbox" name="allergyFree[treeNut]" <%=recipe.allergyFree.treeNut ? "checked" : "" %>/>
-              </label>
-              <label>
-                Egg-Free: <input type="checkbox" name="allergyFree[egg]" <%=recipe.allergyFree.egg ? "checked" : "" %>/>
-              </label>
-              <label>
-                Nut-Free: <input type="checkbox" name="allergyFree[nuts]" <%=recipe.allergyFree.nuts ? "checked" : "" %>/>
-              </label>
-              <label>
-                Fish-Free: <input type="checkbox" name="allergyFree[fish]" <%=recipe.allergyFree.fish ? "checked" : "" %>/>
-              </label>
-              <label>
-                Shellfish-Free:
-                <input type="checkbox" name="allergyFree[shellfish]" <%=recipe.allergyFree.shellfish ? "checked" : "" %>/>
-              </label>
-              <label>
-                Soy-Free: <input type="checkbox" name="allergyFree[soy]" <%=recipe.allergyFree.soy ? "checked" : "" %>/>
-              </label>
-              <label>
-                Sesame Seeds-Free:
-                <input type="checkbox" name="allergyFree[sesameSeeds]" <%=recipe.allergyFree.sesameSeeds ? "checked" : "" %>/>
-              </label>
-              <label>
-                Vegan: <input type="checkbox" name="allergyFree[vegan]" <%=recipe.allergyFree.vegan ? "checked" : "" %>/>
-              </label>
-              <label>
-                Vegetarian:
-                <input type="checkbox" name="allergyFree[vegetarian]" <%=recipe.allergyFree.vegetarian ? "checked" : "" %>/>
-              </label>
-              <label>
-                Keto: <input type="checkbox" name="allergyFree[keto]" <%=recipe.allergyFree.keto ? "checked" : "" %>/>
-              </label>
-            </section>
-          </fieldset>
-
-          <input type="submit" value="Update Recipe" />
-        </form>
-      </section>
     </main>
     
   </body>
