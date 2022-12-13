@@ -191,15 +191,5 @@ body {
     flex-direction: column;
    }
   
-   .allergyIndicator{
-    margin-bottom: 0;
-    margin-top: 0;
-   }
   
-   .removeWord{
-    display: none;
-   }
-  
-  
-    
   }

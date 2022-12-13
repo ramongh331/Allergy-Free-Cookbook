@@ -11,6 +11,17 @@ body {
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
   }
+
+  .webTitle{
+    display:none;
+  }
+
+  .asideLeft, .asideRight{
+    width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
   
   .card {
     display: flex;
@@ -126,4 +137,65 @@ form{
     width: 180px;
     text-align: center;
     margin: 5px;
+  }
+
+  @media screen and (max-width: 1170px) {
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .webTitle{
+        display: block;
+        color: rgb(56,56,56);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+  }
+  
+  .card{
+    max-width: 90%;
+    max-height: 90%;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+   }
+    
+     .asideLeft, .asideRight {
+         display: none;
+     }
+     
+  }
+  
+  /* Phone Sizes */
+  @media screen and (max-width: 414px) {
+  
+    body{
+        max-width: 27rem;
+        max-height: 57rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    }
+  
+    .webTitle{
+        display: block;
+        color: rgb(56,56,56);
+        font-size: 2rem;
+       
+  }
+  
+   .card{
+    max-width: 90%;
+    max-height: 90%;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+   }
+  
+  
   }
