@@ -6,17 +6,18 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
+    <h1>¡Qué Rico!</h1>
     <aside class="asideLeft"><img src="https://i.imgur.com/vXR11gL.png" alt="Logo for Que Rico Website"></aside>
     <main class="card">
-      <h1>Recipes</h1>
+      <h2>Recipes</h2>
       <a href="/recipes/new"><button>Add a Recipe</button></a>
       <section class="recipeNames">
         <% for(let i = 0; i< recipe.length; i+=1){ %>
         <section class="eachRecipe">
           <a href="/recipes/<%=recipe[i]._id %> ">
-            <h2 class="recipeName"><%= recipe[i].name%></h2>
+            <h3 class="recipeName"><%= recipe[i].name%></h3>
           </a>
-          <h3><%=recipe[i].difficulty %></h3>
+          <h4><%=recipe[i].difficulty %></h4>
             <ul class="allergyIndicator">
               <% if(recipe[i].allergyFree.gluten){ %>
               <li><img src="https://i.imgur.com/hLCBvKT.png" alt="Gluten-Free" class="allerIcon"><p class="hiddenLabel">Gluten-Free</p></li>
