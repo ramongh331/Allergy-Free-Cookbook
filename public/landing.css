@@ -13,8 +13,8 @@ font-family: 'Montserrat', sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 600px;
-    min-height: 600px;
+    width: 600px;
+    height: 600px;
     background-color: white;
     border-radius: 30px;
     box-shadow: 20px 20px 25px rgba(0,0,0,0.45);
@@ -35,3 +35,24 @@ button:hover{
     transition: background-color .2s
 
 }
+
+@media screen and (max-width: 633px) {
+ 
+body{
+    max-width: 26rem;
+     
+}
+
+    .card{
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+   }
+
+
+     
+ }
+
+
+ 
