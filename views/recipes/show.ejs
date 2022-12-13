@@ -7,6 +7,8 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
+    <h1 class="webTitle">¡Qué Rico!</h1>
+    <aside class="asideLeft"><img src="https://i.imgur.com/vXR11gL.png" alt="Logo for Que Rico Website"></aside>
     <section class="card">
    
     
@@ -57,13 +59,14 @@
             </section>
           </section>
           <section class="buttons"> 
-            <a href="/recipes/<%=recipe._id %>/edit"><button>Edit Recipe</button></a>
+            <a href="/recipes/<%=recipe._id %>/edit"><button>Edit <span class="removeWord">Recipe</span></button></a>
             <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-              <input type="submit" value="Delete Recipe" />
+              <input type="submit" value="Delete" />
            </form>
-          <a href="/recipes"><button>Back to Recipe List</button></a>
+          <a href="/recipes"><button>Back <span class="removeWord">to Recipe List</span></button></a>
            </section>
     </section>
+    <aside class="asideRight"><img src="https://i.imgur.com/vXR11gL.png" alt="Logo for Que Rico Website"></aside>
 
 </body>
 </html>

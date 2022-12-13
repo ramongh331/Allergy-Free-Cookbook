@@ -12,6 +12,13 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.asideLeft, .asideRight{
+  width: 33%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -22,6 +29,10 @@ body {
   border-radius: 30px;
   box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.45);
   padding-bottom: 5px;
+}
+
+.webTitle{
+  display: none;
 }
 
 h1{
@@ -101,4 +112,75 @@ h2{
 
 h3{
   font-weight: 500;
+}
+
+@media screen and (max-width: 1170px) {
+  body{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .webTitle{
+      display: block;
+      color: rgb(56,56,56);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+}
+
+.card{
+  max-width: 90%;
+  max-height: 90%;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+ }
+  
+   .asideLeft, .asideRight {
+       display: none;
+   }
+   
+}
+
+/* Phone Sizes */
+@media screen and (max-width: 414px) {
+
+  body{
+      max-width: 27rem;
+      max-height: 57rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+  }
+
+  .webTitle{
+      display: block;
+      color: rgb(56,56,56);
+      font-size: 2rem;
+     
+}
+
+ .card{
+  max-width: 90%;
+  max-height: 90%;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+ }
+
+ .allergyIndicator{
+  margin-bottom: 0;
+  margin-top: 0;
+ }
+
+ .removeWord{
+  display: none;
+ }
+
+
+  
 }
