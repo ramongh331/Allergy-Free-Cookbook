@@ -25,7 +25,7 @@ const recipesSchema = new Schema({
     vegetarian: Boolean,
     keto: Boolean,
   },
-  //  username: String,
+   username: String,
 });
 
 const Recipe = model("Recipe", recipesSchema);

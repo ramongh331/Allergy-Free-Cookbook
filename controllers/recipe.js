@@ -11,6 +11,19 @@ const Recipe = require("../models/recipe");
 
 const router = express.Router();
 
+////////////////////////////////////////
+// Router Middleware
+////////////////////////////////////////
+// Authorization Middleware
+router.use((req, res, next) => {
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    res.redirect("/user/login");
+  }
+});
+
+
 //////////////////////////////////////////////
 //////// Routes
 ///////////////////////////////////////////////
@@ -18,9 +31,9 @@ router.get("/seed", (req, res) => {});
 
 // Index Route
 router.get("/", (req, res) => {
-Recipe.find({})
+Recipe.find({username: req.session.username})
 .then((recipe) => {
-    res.render("recipes/index.ejs", {recipe})
+    res.render("recipes/index.ejs", {recipe, user: req.session.username})
 })
 .catch((error) => console.log(error))
 })
@@ -47,7 +60,7 @@ router.post("/", (req, res) => {
     req.body.allergyFree.keto = req.body.allergyFree.keto === "on" ? true : false;
     console.log(req.body, "this is the form before submission")
 
-
+    req.body.username = req.session.username
     Recipe.create(req.body, (err, createdRecipe) => {
       
       console.log("created", createdRecipe);
