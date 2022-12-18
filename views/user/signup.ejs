@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("../partials/head.ejs") %>
-
+  <head>
+    <%- include("../partials/head.ejs") %>
+    <link rel="stylesheet" href="/static/signup.css"> 
+  </head>
   <body>
     <%- include("../partials/header.ejs") %>
-    <main>
-      <div>
+    <main class="card">
+      <section class="signupLeft">
+        <h1>Create a New Account</h1>
         <form action="/user/signup" method="post">
-          <fieldset>
-            <legend>New User</legend>
-            <label
-              >USERNAME: <input type="text" name="username" required />
-            </label>
-            <label
-              >PASSWORD: <input type="password" name="password" required />
-            </label>
-            <input type="submit" value="Create Account" />
-          </fieldset>
+            <input class="inputFields" type="text" name="username" placeholder="Username" required />
+            <input class="inputFields" type="password" name="password" placeholder="Password" required />
+            
+            <input type="submit" value="Signup" />
         </form>
-      </div>
+      </section>
+      <section class="signupRight"><img src="https://i.imgur.com/vXR11gL.png" alt="Logo for Que Rico Website"></section>
     </main>
   </body>
 </html>
